@@ -12,7 +12,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'kien/ctrlp.vim'
 Bundle 'christoomey/vim-tmux-navigator'
-Plugin 'gertjanreynaert/cobalt2-vim-theme'
+
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'othree/yajs.vim'
@@ -34,9 +34,7 @@ set laststatus=2
 filetype on
 
 " set background=dark
-colorscheme cobalt2
-
-let g:airline_theme='cobalt2'
+" colorscheme material-theme
 
 set number
 set bs=2
@@ -69,4 +67,3 @@ set splitbelow
 set splitright
 
 au! BufNewFile,BufRead *.svelte set ft=html
-set tags=tags

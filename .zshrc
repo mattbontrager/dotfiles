@@ -1,7 +1,10 @@
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 export TERM="xterm-256color"
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+export EDITOR='subl -w'
 
 # auto use nvm (nvm use for dirs with .nvmrc files)
 export NVM_AUTO_USE=true
@@ -13,7 +16,7 @@ export ZSH="/Users/pbontrag/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME=cobalt2
 
 # ZSH_TMUX_AUTOSTART='true'
 
@@ -48,11 +51,13 @@ export NVM_DIR="$HOME/.nvm"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(git zsh-completions)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(bundler brew gem tmux zsh-z git vagrant zsh-completions zsh-nvm)
+plugins=(brew bundler brew gem tmux z git zsh-completions zsh-nvm rbenv)
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+eval "$(rbenv init -)"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -75,7 +80,12 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
+alias resetrig='python3 ./pivi-rig.py -r'
+alias rl='sshpass -p "jlr173" ssh root@192.168.3.1'
+alias subl='open -a Sublime\ Text.app'
 alias nrb="npm run build"
+alias nrd="npm run deploy"
+alias clown='tmux a -t 🤡'
 alias nrt="npm run test"
 alias nrl="npm run lint"
 alias nrs="npm run start"
@@ -89,9 +99,9 @@ alias ...='cd ../../'
 alias ....='cd ../../../'
 alias ctags="`brew --prefix`/bin/ctags"
 export PATH="/usr/local/bin:/usr/local/opt/qt/bin:$PATH"
-export PATH="/usr/local/lib/ruby/bin:$PATH"
-export PATH="$HOME/.gem/ruby/2.6.0/bin:$PATH"
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-export PATH="/Applications/MongoDB.app/Contents/Resources/Vendor/mongodb/bin:$PATH"
+export PYENV_ROOT=”/Users/pbontrag/.pyenv”
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
