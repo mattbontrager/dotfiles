@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+/**
+ * FUTURE: 🧙‍♂️ ${1:future feature info goes here} 🧙‍♂️
+ */
+$0
+]]></content>
+	<tabTrigger>_future</tabTrigger>
+</snippet>

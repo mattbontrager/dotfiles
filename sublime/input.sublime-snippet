@@ -1,0 +1,7 @@
+<snippet>
+	<content><![CDATA[
+<label for="${1:label name}">${2:Real Label Name}</label>
+<input type="${3:text / email / range}" name="$1" id="$11$1" maxlength="${4:30}" data-required="${5:true/false}" data-title="${6:message to user}" placeholder="${7:placeholder message goes here}" autocorrect="${8:on/off}" autocapitalize="${10:none${9:/sentences/words/characters}}" />$0
+]]></content>
+	<tabTrigger>_inputl</tabTrigger>
+</snippet>

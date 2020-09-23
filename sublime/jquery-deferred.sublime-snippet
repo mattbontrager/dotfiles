@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+return \$.Deferred(function(dfd) {
+	${1://do work}
+}).promise();
+]]></content>
+	<tabTrigger>_jd</tabTrigger>
+	<description>jQuery Deferred</description>
+	<scope>source.js</scope>
+</snippet>

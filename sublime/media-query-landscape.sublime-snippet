@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+/* landscape */
+@media screen and (min-width: 721px) and (max-width: 1280px) and (orientation: landscape) {
+	${1:rules go here}
+}
+]]></content>
+	<tabTrigger>@mql</tabTrigger>
+</snippet>

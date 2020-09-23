@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+if (isset(\$row['$1']) && !empty(\$row['$1'])) {
+	\$data['${1:key}'] = \$row['${1}'];
+}
+]]></content>
+	<tabTrigger>ifkv</tabTrigger>
+	<scope>source.php</scope>
+</snippet>

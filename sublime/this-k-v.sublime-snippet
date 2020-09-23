@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+if (isset(\$this->${1:key}) && !empty(\$this->$1)) {
+	\$primaryData['$1'] = $this->$1;
+}$0
+]]></content>
+	<tabTrigger>kv</tabTrigger>
+	<scope>source.php</scope>
+</snippet>

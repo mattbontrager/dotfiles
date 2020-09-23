@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+'${1:array_prop}'=>\$this->$1,
+]]></content>
+	<description>array property ...</description>
+	<tabTrigger>_arr</tabTrigger>
+	<scope>source.php</scope>
+</snippet>

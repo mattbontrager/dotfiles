@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+if (isset(\$this->${1:ObjectName}['${2:array_property_name}']) && !empty(\$this->$1['$2'])) {
+	\$this->${3:local_var_name}['$2'] = \$this->$1['$2'];
+}]]></content>
+	<tabTrigger>_mdise</tabTrigger>
+	<scope>source.php</scope>
+	<description>multi-dimensional array variable assignment</description>
+</snippet>

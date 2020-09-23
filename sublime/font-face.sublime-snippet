@@ -1,0 +1,11 @@
+<snippet>
+	<content><![CDATA[
+@font-face {
+	font-family: ${1:'font name'};
+	src: url(${2:'font/directory/}${3:fontFileName}.eot');
+	src: local('$3-Regular'), local('$3'), url('$2$3.otf') format('opentype');
+}
+]]></content>
+	<tabTrigger>_font</tabTrigger>
+	<scope>source.css</scope>
+</snippet>

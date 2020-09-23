@@ -1,0 +1,7 @@
+<snippet>
+	<content><![CDATA[
+echo "<p>${1:INSERT TEXT HERE}</p>";
+]]></content>
+	<tabTrigger>_echo</tabTrigger>
+	<scope>source.php</scope>
+</snippet>

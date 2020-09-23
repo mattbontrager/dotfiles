@@ -1,0 +1,11 @@
+<snippet>
+	<content><![CDATA[
+${1:var }${2:functionName} = function $2(${3:args}) {
+	${4:!arguments.length && !!development && console.error('no arguments passed to $2');}
+	${0:// do work}
+}
+]]></content>
+	<description>Named Function Expression</description>
+	<tabTrigger>_nfe</tabTrigger>
+	<scope>source.js</scope>
+</snippet>

@@ -1,0 +1,7 @@
+<snippet>
+	<content><![CDATA[
+(?<=${1:<h5>}).+(?=$1)
+]]></content>
+	<tabTrigger>_srs</tabTrigger>
+	<description>Sublime Text Regular Expression exclusive lookback search</description>
+</snippet>

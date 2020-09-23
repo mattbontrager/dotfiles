@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+/**
+ * NOTE: 📝 ${1: Note goes here}
+ **/$0
+]]></content>
+	<tabTrigger>_n</tabTrigger>
+</snippet>

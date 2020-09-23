@@ -1,0 +1,29 @@
+<snippet>
+	<content><![CDATA[
+var MODULE = (function(\$) {
+	var development = true,
+		interrogate = true,
+		self,
+		privateVar,
+		privateMethod = function privateMethod() {
+			// do private work
+		};
+
+	return {
+		init: function init() {
+			// initialize app and do public work
+			!!development && console.log('in init');
+			self = (!self) ? this: self;
+			$0
+		},
+		publicMethodGoesHere: function publicMethodGoesHere() {
+			!!development && console.log('in publicMethodGoesHere');
+			// do more public work
+		}
+	};
+}(jQuery));
+]]></content>
+	<description>new js module</description>
+	<tabTrigger>_M</tabTrigger>
+	<scope>source.js</scope>
+</snippet>

@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+<li data-category="${1:category}" data-loe-to-extract="${2:extract}" data-loe-to-create="${3:create}" data-critical-to-functionality="${4:critical}" data-functionality="${5:functionality}" data-source="${6:source}" data-scenes-loader="${7:yes or no}" data-scenes-vehicle-select="${8:yes or no}" data-scenes-yosemite="${9:yes or no}" data-scenes-san-francisco="${10:yes or no}" data-scenes-pch="${11:yes or no}" data-description="${12:description}" data-contents="${13:contents}" data-notes="${14:notes go here}">
+	<h2>${15:name goes here}</h2>
+</li>$0
+]]></content>
+	<tabTrigger>_litpa</tabTrigger>
+</snippet>

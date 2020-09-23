@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+/*
+ * TODO: 👉 ${1:todo info goes here}
+*/$0
+]]></content>
+	<tabTrigger>_t</tabTrigger>
+</snippet>

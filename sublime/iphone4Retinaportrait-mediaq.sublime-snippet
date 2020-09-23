@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+/* iPhone 4 Retina Portrait */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+	${1:Styles go here}
+}
+]]></content>
+	<tabTrigger>_iph4rp</tabTrigger>
+	<scope>source.scss</scope>
+</snippet>

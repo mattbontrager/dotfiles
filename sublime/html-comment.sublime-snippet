@@ -1,0 +1,7 @@
+<snippet>
+	<content><![CDATA[
+<!-- ${1:insert comment here} -->
+]]></content>
+	<tabTrigger>_c</tabTrigger>
+	<scope>source.html, source.kit</scope>
+</snippet>

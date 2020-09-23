@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[
+/* portrait */
+@media screen and (max-width: 720px) and (orientation: portrait) {
+	${1:rules go here}
+}
+]]></content>
+	<tabTrigger>@mqp</tabTrigger>
+</snippet>

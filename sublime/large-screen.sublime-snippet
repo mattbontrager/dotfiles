@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+/* landscape */
+@media screen and (min-width: 1281px) {
+	${1:rules go here}
+}
+]]></content>
+	<tabTrigger>@mqlarge</tabTrigger>
+	<description>Responsive Design for Large Screens</description>
+</snippet>

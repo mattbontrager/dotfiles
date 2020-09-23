@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+/* Desktops and laptops ----------- */
+@media only screen and (min-width : 1224px) {
+	${1:Styles go here}
+}
+]]></content>
+	<tabTrigger>_mqdesk</tabTrigger>
+	<scope>source.scss</scope>
+</snippet>

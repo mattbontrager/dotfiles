@@ -1,0 +1,52 @@
+<snippet>
+	<content><![CDATA[
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>${1:page title}</title>
+		<script src="js/libs/modernizr.js"></script>
+		<link rel="stylesheet" href="css/screen.css">
+	</head>
+	<body>
+		<div id="spinner"></div>
+		<div id="alertBox"></div>
+		<div id="container">
+			<header>
+				<ul class="headerList">
+					<li class="userNavLI">
+						<ul class="userNav">
+							<li><button class="userSignupButton" data-method="show_signup_form">Sign Up!</button></li>
+							<li><button class="userLoginButton" data-method="show_login_form">Login</button></li>
+							<li><button class="userContactButton" data-method="show_contact_form">Contact Us</button></li>
+						</ul>
+					</li>
+					<li class="pageSpecificIcon"></li>
+					<li class="mainHeaderText">pilot cars on demand</li>
+				</ul>
+			</header>
+			<nav class="mainNav"></nav>
+			<nav class="socNav"></nav>
+			<main data-page="${2:home, trucks, loads, escorts, pilots, whatever}">
+				<article id="${3: first article id}">
+					${4:<header>${5:article 1 header}</header>}
+					${6:<nav>${7:nav 1}</nav>}
+					<section id="${8:section id}"></section>
+					${9:<footer>$0</footer>}
+				</article>
+			</main>
+			<div id="footer-spacer"></div>
+		</div>
+		<footer>
+			<ul>
+				<li></li>
+				<li>&copy; 2013 Pilot Cars On Demand, Inc. All Rights Reserved</li>
+				<li>Site Designed by <a href="http://toolsdept.com" target="_blank">Tools Dept.</a></li>
+			</ul>
+		</footer>
+		<script src="js/app-ck.js"></script>
+	</body>
+</html>
+]]></content>
+	<tabTrigger>_newpage</tabTrigger>
+</snippet>

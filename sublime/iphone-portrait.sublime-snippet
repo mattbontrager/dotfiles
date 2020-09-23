@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+/* Smartphones (portrait) ----------- */
+@media only screen and (-webkit-max-device-pixel-ratio: 1) and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+	${1:Styles go here}
+}
+]]></content>
+	<tabTrigger>_iphonep</tabTrigger>
+	<scope>source.scss</scope>
+</snippet>

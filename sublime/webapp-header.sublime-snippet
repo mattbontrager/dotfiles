@@ -1,0 +1,44 @@
+<snippet>
+	<content><![CDATA[
+<head>
+	<meta charset="UTF-8">
+	<meta id="gcid" name="google-signin-client_id" content="873133889215-raf3t914k7fimehk9eg7bb5revgdrvp6.apps.googleusercontent.com"></meta>
+
+	<!-- meta tags to enable standalone / web app -->
+	<meta name="apple-touch-fullscreen" content="YES">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-title" content="TMT">
+	<meta name="application-name" content="TMT">
+	<meta name="msapplication-TileColor" content="#2b5797">
+	<meta name="theme-color" content="#ffffff">
+	<meta name="HandheldFriendly" content="true">
+	<meta http-equiv="x-rim-auto-match" content="none">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0 user-scalable=no" />
+
+	<!-- meta tags for site "credits" -->
+	<meta name="author" content="Matt Bontrager">
+	<meta name="description" content="${2:SITE DESCRIPTION GOES HERE}" />
+	<title>${1:page title}</title>
+
+	<!-- links to web app icons -->
+	<!-- generate them from https://realfavicongenerator.net -->
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/apple-touch-icon-60x60-precomposed.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/apple-touch-icon-76x76-precomposed.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/apple-touch-icon-120x120-precomposed.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/apple-touch-icon-152x152-precomposed.png" />
+	<link rel="apple-touch-icon-precomposed" sizes="180x180" href="/apple-touch-icon-180x180-precomposed" />
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+	<link rel="manifest" href="/site.webmanifest" />
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+
+	<!-- Modernizr -->
+	<script src="js/libs/modernizr.js"></script>
+
+	<!-- stylesheets -->
+	<link rel="stylesheet" href="css/screen.css" />
+</head>
+]]></content>
+	<tabTrigger>_webappheader</tabTrigger>
+</snippet>

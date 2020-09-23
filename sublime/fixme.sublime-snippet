@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+/**
+ * FIXME: 💔 ${1:fixme details go here} 💔
+ **/
+]]></content>
+	<tabTrigger>_f</tabTrigger>
+</snippet>

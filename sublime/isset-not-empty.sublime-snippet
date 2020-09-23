@@ -1,0 +1,7 @@
+<snippet>
+	<content><![CDATA[
+\$this->${1:request} = (isset(\$_REQUEST['${1}']) && !empty(\$_REQUEST['${1}'])) ? \$_REQUEST['${1}']: NULL;
+]]></content>
+	<tabTrigger>ise</tabTrigger>
+	<scope>source.php</scope>
+</snippet>
