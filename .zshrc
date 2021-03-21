@@ -1,6 +1,5 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export TERM="xterm-256color"
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -42,6 +41,7 @@ DEFAULT_USER="pbontrag"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+ZSH_DISABLE_COMPFIX=true
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # this loads nvm
@@ -51,7 +51,7 @@ export NVM_DIR="$HOME/.nvm"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(git zsh-completions)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew bundler brew gem tmux z git zsh-completions zsh-nvm rbenv)
+plugins=(brew bundler vi-mode zsh-autosuggestions gem tmux z git zsh-completions zsh-nvm rbenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -80,6 +80,7 @@ eval "$(rbenv init -)"
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
+alias lasttag='git describe --abbrev=0 --tags'
 alias resetrig='python3 ./pivi-rig.py -r'
 alias rl='sshpass -p "jlr173" ssh root@192.168.3.1'
 alias subl='open -a Sublime\ Text.app'
@@ -99,9 +100,15 @@ alias ...='cd ../../'
 alias ....='cd ../../../'
 alias ctags="`brew --prefix`/bin/ctags"
 export PATH="/usr/local/bin:/usr/local/opt/qt/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/qt/lib"
+export CPPFLAGS="-I/usr/local/opt/qt/include"
+export PKG_CONFIG_PATH="/usr/local/opt/qt/lib/pkgconfig"
 
 export PYENV_ROOT=”/Users/pbontrag/.pyenv”
 export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
+eval "$(direnv hook zsh)"
+autoload -Uz compinit && compinit
