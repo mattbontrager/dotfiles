@@ -3,8 +3,6 @@ export TERM="xterm-256color"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export EDITOR='subl -w'
-
 # auto use nvm (nvm use for dirs with .nvmrc files)
 export NVM_AUTO_USE=true
 
@@ -18,23 +16,6 @@ export ZSH="/Users/pbontrag/.oh-my-zsh"
 ZSH_THEME=cobalt2
 
 # ZSH_TMUX_AUTOSTART='true'
-
-POWERLEVEL9K_PROMPT_ON_NEWLINE='true'
-
-POWERLEVEL9K_USER_ICON="\uF415"
-POWERLEVEL9K_ROOT_ICON="#"
-POWERLEVEL9K_SUDO_ICON=$'\uF09C'
-
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
-POWERLEVEL9K_SHORTEN_DELIMITER=''
-POWERLEVEL9K_SHORTEN_STRATEGY='truncate_from_right'
-
-POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S}"
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon ssh dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(node_version nodeenv nvm time)
-
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
 DEFAULT_USER="pbontrag"
 
@@ -51,7 +32,7 @@ export NVM_DIR="$HOME/.nvm"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(git zsh-completions)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(brew bundler vi-mode zsh-autosuggestions gem tmux z git zsh-completions zsh-nvm rbenv)
+plugins=(brew bundler vi-mode zsh-autosuggestions gem z git zsh-completions zsh-nvm rbenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -65,11 +46,11 @@ eval "$(rbenv init -)"
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='vim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -112,3 +93,10 @@ fi
 
 eval "$(direnv hook zsh)"
 autoload -Uz compinit && compinit
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/pbontrag/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/pbontrag/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/pbontrag/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pbontrag/google-cloud-sdk/completion.zsh.inc'; fi
