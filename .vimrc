@@ -25,10 +25,8 @@ Plugin 'vim-utils/vim-man'
 Plugin 'mbbill/undotree'
 Plugin 'junegunn/fzf'
 
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'Valloric/YouCompleteMe'
-
 call vundle#end()
+
 filetype plugin indent on
 
 syntax on
@@ -60,9 +58,17 @@ if executable('rg')
 	let g:rg_derive_root='true'
 endif
 
+let g:ale_disable_lsp = 1
+let g:ale_fixers = {
+\	'*': ['remove_trailing_lines', 'trim_whitespace']
+\ }
+
 let g:airline_theme='cobalt2'
 
-set number
+" Set this. Airline will handle the rest
+let g:airline#extensions#ale#enablbed = 1
+
+set number relativenumber
 set bs=2
 set autoindent smartindent
 set smarttab
@@ -98,8 +104,24 @@ nnoremap <leader>u :UndotreeShow<CR>
 " project search
 nnoremap <leader>ps :Rg<SPACE>
 
-"YCM you complete me
-nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
+" GoTo code navigation
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
 
 set splitbelow
 set splitright

@@ -33,8 +33,10 @@
 [commit]
 	template=~/.gitmessage
 [alias]
+	co=!git checkout
 	b=!git branch -v
 	newbranch=!git checkout -b
+	rmb=!git branch -D
 	s=status
 	a=!git add . && git status
 	au=!git add -u . && git status
@@ -61,3 +63,5 @@
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
+[merge]
+	tool = opendiff

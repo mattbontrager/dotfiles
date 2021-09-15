@@ -1,7 +1,10 @@
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 export TERM="xterm-256color"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+PYENV_VERSION=3.9.4
+PYENV_ROOT="/Users/pbontrag/.pyenv"
 
 # auto use nvm (nvm use for dirs with .nvmrc files)
 export NVM_AUTO_USE=true

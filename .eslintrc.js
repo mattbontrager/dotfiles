@@ -5,8 +5,14 @@ module.exports = {
 		'node': true,
 		'mocha': true
 	},
-	'globals': {},
+	'globals': {
+		'$': 'readonly',
+		'$$': 'readonly',
+		'phoenix': 'readonly',
+		'app': 'readonly'
+	},
 	'extends': 'eslint:recommended',
+	'parser': 'babel-eslint',
 	'parserOptions': {
 		'ecmaVersion': 12,
 		'sourceType': 'module'
