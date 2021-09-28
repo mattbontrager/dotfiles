@@ -25,6 +25,8 @@ Plugin 'vim-utils/vim-man'
 Plugin 'mbbill/undotree'
 Plugin 'junegunn/fzf'
 
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+
 call vundle#end()
 
 filetype plugin indent on
@@ -90,9 +92,10 @@ let mapleader = " "
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " map <F2> :NERDTreeToggle<CR>
-imap <expr> <tab> emmet#expandAbbrIntelligent("/<tab>")
+" imap <expr> <tab> emmet#expandAbbrIntelligent("/<tab>")
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -103,6 +106,38 @@ nnoremap <leader>f :NERDTreeToggle<CR>
 nnoremap <leader>u :UndotreeShow<CR>
 " project search
 nnoremap <leader>ps :Rg<SPACE>
+
+" new one
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+" close new one
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation
 nmap <silent> gd <Plug>(coc-definition)
