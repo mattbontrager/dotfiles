@@ -1,8 +1,8 @@
 set t_Co=256
 set termguicolors
 set nocompatible
-filetype off
 
+filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -20,12 +20,17 @@ Plugin 'MikeCoder/markdown-preview.vim'
 
 Plugin 'jremmen/vim-ripgrep'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-commentary'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'vim-utils/vim-man'
 Plugin 'mbbill/undotree'
 Plugin 'junegunn/fzf'
 
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Plugin 'joukevandermaas/vim-ember-hbs'
+Plugin 'kevinoid/vim-jsonc'
+
+Plugin 'mxw/vim-jsx'
 
 call vundle#end()
 
@@ -50,8 +55,6 @@ set undofile
 set scrolloff=8
 set signcolumn=yes
 set updatetime=50
-
-filetype on
 
 " set background=dark
 colorscheme cobalt2
@@ -79,8 +82,6 @@ set noexpandtab
 set tabstop=4
 set noswapfile
 
-filetype indent on			"enable filetype specific indenting
-
 set clipboard=unnamed		"allow yy, etc. to interact with OS X clipboard
 
 let g:ctrlp_custom_ignore='node_modules\|DS_Store\|git\|NERD_*|prod|dist'
@@ -93,6 +94,12 @@ let mapleader = " "
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd FileType json syntax match Comment +\/\/.\+$+
+
+" FORMATTERS
+au FileType javascript setlocal formatprg=prettier
+au FileType javascript.jsx setlocal formatprg=prettier
+au FileType scss setlocal formatprg=prettier\ --parser\ css
+au FileType css setlocal formatprg=prettier\ --parser\ css
 
 " map <F2> :NERDTreeToggle<CR>
 " imap <expr> <tab> emmet#expandAbbrIntelligent("/<tab>")
@@ -107,19 +114,25 @@ nnoremap <leader>u :UndotreeShow<CR>
 " project search
 nnoremap <leader>ps :Rg<SPACE>
 
+" format json
+nnoremap <leader>fj :%!jq --tab .<CR>
+
+" fold block of code ?? who knows if this will work??
+nnoremap <leader>fb Va}<CR>zf
+
 " new one
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? coc#_select_confirm() :
-      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+       \ pumvisible() ? coc#_select_confirm() :
+       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+       \ <SID>check_back_space() ? "\<TAB>" :
+       \ coc#refresh()
+ 
+ function! s:check_back_space() abort
+   let col = col('.') - 1
+   return !col || getline('.')[col - 1]  =~# '\s'
+ endfunction
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-let g:coc_snippet_next = '<tab>'
+ let g:coc_snippet_next = '<tab>'
 " close new one
 
 " Use <c-space> to trigger completion.
@@ -138,6 +151,9 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" refresh nerdtree and ctrlp
+nmap <Leader>r :NERDTreeFocus<cr>R<c-w><c-p>:CtrlPClearCache<cr>
 
 " GoTo code navigation
 nmap <silent> gd <Plug>(coc-definition)
