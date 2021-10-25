@@ -3,12 +3,25 @@ export TERM="xterm-256color"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-PYENV_VERSION=3.9.4
-PYENV_ROOT="/Users/pbontrag/.pyenv"
-
 export ZSH_DISABLE_COMPFIX=true
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/pbontrag/.oh-my-zsh"
+
+# User configuration
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
+
+export EDITOR='vim'
+export PATH="/usr/local/bin:/usr/local/opt/qt/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/qt/lib"
+export CPPFLAGS="-I/usr/local/opt/qt/include"
+export PKG_CONFIG_PATH="/usr/local/opt/qt/lib/pkgconfig"
+
+export PYENV_ROOT=”/Users/pbontrag/.pyenv”
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+
+PYENV_VERSION=3.9.4
+PYENV_ROOT="/Users/pbontrag/.pyenv"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -16,11 +29,8 @@ export ZSH="/Users/pbontrag/.oh-my-zsh"
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="cobalt2"
 
-
 # auto use nvm (nvm use for dirs with .nvmrc files)
-export NVM_AUTO_USE=true
-
-
+# export NVM_AUTO_USE=true
 
 # ZSH_TMUX_AUTOSTART='true'
 
@@ -38,28 +48,33 @@ export NVM_DIR="$HOME/.nvm"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(git zsh-completions)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-autosuggestions vi-mode z git zsh-completions zsh-nvm)
+plugins=(zsh-autosuggestions vi-mode z git zsh-completions)
 
-autoload -Uz compinit && compinit
+autoload -Uz compinit
+if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ];
+then
+	compinit
+else
+	compinit -C
+fi
+# for dump in ~/.zcompdump(N.mh+24); do
+#   compinit
+# done
+# compinit -C
+
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
+
+rbenv() {
+	eval "$(command rbenv init -)"
+	rbenv "$@"
+}
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='vim'
-# fi
-
-export EDITOR='vim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -86,20 +101,15 @@ alias nrl="npm run lint"
 alias nrs="npm run start"
 alias zshconfig="vim ~/.zshrc"
 alias sourcezsh="source ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ll='ls -alFh'
 alias proj='cd ~/Projects'
 alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'
 alias ctags="`brew --prefix`/bin/ctags"
-export PATH="/usr/local/bin:/usr/local/opt/qt/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/qt/lib"
-export CPPFLAGS="-I/usr/local/opt/qt/include"
-export PKG_CONFIG_PATH="/usr/local/opt/qt/lib/pkgconfig"
+alias reload!='exec "$SHELL" -l'
 
-export PYENV_ROOT=”/Users/pbontrag/.pyenv”
-export PATH="$PYENV_ROOT/bin:$PATH"
+
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
@@ -112,3 +122,9 @@ fi
 
 # The next line enables shell command completion for gcloud.
 # if [ -f '/Users/pbontrag/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/pbontrag/google-cloud-sdk/completion.zsh.inc'; fi
+
+# time shell loading time
+timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}
