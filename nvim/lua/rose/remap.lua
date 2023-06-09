@@ -31,12 +31,14 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
+-- FORMAT JSON
+vim.keymap.set("n", "<leader>fj", "<cmd>:%!jq --tab .<CR>")
+
 -- This is going to get me cancelled
 -- vim.keymap.set("i", "<C-c>", "<Esc>")
 -- vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 -- vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/theprimeagen/packer.lua<CR>");
 -- vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
--- vim.keymap.set("n", "<leader>fj" "<cmd>:%!jq" --tab .<CR>
 
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
