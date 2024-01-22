@@ -1,2 +1,2 @@
 require("rose")
-vim.cmd("colorscheme cobalt2")
+vim.cmd("colorscheme nordfox")
